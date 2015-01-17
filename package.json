@@ -25,6 +25,7 @@
     "index_of": "nathanfaucett/index_of",
     "is_array_like": "nathanfaucett/is_array_like",
     "is_object": "nathanfaucett/is_object",
+    "is_date": "nathanfaucett/is_date",
     "is_function": "nathanfaucett/is_function"
   }
 }

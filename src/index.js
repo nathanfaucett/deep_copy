@@ -1,5 +1,6 @@
 var keys = require("keys"),
     indexOf = require("index_of"),
+    isDate = require("is_date"),
     isObject = require("is_object"),
     isFunction = require("is_function"),
     isArrayLike = require("is_array_like");
@@ -37,7 +38,7 @@ function copyObject(object, out, seen, copied) {
 }
 
 function baseDeepCopy(object, seen, copied) {
-    var index;
+    var index, out;
 
     if (!isObject(object) || isFunction(object)) {
         return object;
@@ -50,9 +51,13 @@ function baseDeepCopy(object, seen, copied) {
 
     if (isArrayLike(object)) {
         return copyArray(object, seen, copied);
+    } else if (isDate(object)) {
+        out = new Date(object);
     } else {
-        return copyObject(object, {}, seen, copied);
+        out = {};
     }
+
+    return copyObject(object, out, seen, copied);
 }
 
 module.exports = function deepCopy(object) {
