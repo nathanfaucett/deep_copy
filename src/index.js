@@ -6,6 +6,13 @@ var keys = require("keys"),
     isArrayLike = require("is_array_like");
 
 
+module.exports = deepCopy;
+
+
+function deepCopy(object) {
+    return baseDeepCopy(object, [], []);
+}
+
 function copyArray(array, seen, copied) {
     var length = array.length,
         i = -1,
@@ -59,7 +66,3 @@ function baseDeepCopy(object, seen, copied) {
 
     return copyObject(object, out, seen, copied);
 }
-
-module.exports = function deepCopy(object) {
-    return baseDeepCopy(object, [], []);
-};
