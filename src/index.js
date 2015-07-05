@@ -1,7 +1,6 @@
 var keys = require("keys"),
     indexOf = require("index_of"),
-    isDate = require("is_date"),
-    isObject = require("is_object"),
+    isPrimitive = require("is_primitive"),
     isFunction = require("is_function"),
     isArrayLike = require("is_array_like");
 
@@ -45,24 +44,29 @@ function copyObject(object, out, seen, copied) {
 }
 
 function baseDeepCopy(object, seen, copied) {
-    var index, out;
+    var index;
 
-    if (!isObject(object) || isFunction(object)) {
+    if (isPrimitive(object) || isFunction(object)) {
         return object;
-    }
-    if ((index = indexOf(seen, object)) !== -1) {
-        return copied[index];
-    }
-
-    seen[seen.length] = object;
-
-    if (isArrayLike(object)) {
-        return copyArray(object, seen, copied);
-    } else if (isDate(object)) {
-        out = new Date(object);
     } else {
-        out = {};
-    }
+        if ((index = indexOf(seen, object)) !== -1) {
+            return copied[index];
+        } else {
+            seen[seen.length] = object;
 
-    return copyObject(object, out, seen, copied);
+            if (isArrayLike(object)) {
+                return copyArray(object, seen, copied);
+            } else {
+                return copyObject(object, object.constructor ? createConstructor(object) : {}, seen, copied);
+            }
+        }
+    }
+}
+
+function createConstructor(object) {
+    try {
+        return new object.constructor();
+    } catch (e) {
+        return {};
+    }
 }

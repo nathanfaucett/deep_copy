@@ -7,6 +7,9 @@
     "url": "https://github.com/nathanfaucett/deep_copy.git"
   },
   "main": "src/index.js",
+  "scripts": {
+    "test": "mocha"
+  },
   "keywords": [
     "deep_copy",
     "deep_copy.js"
@@ -24,8 +27,7 @@
     "keys": "nathanfaucett/keys",
     "index_of": "nathanfaucett/index_of",
     "is_array_like": "nathanfaucett/is_array_like",
-    "is_object": "nathanfaucett/is_object",
-    "is_date": "nathanfaucett/is_date",
+    "is_primitive": "nathanfaucett/is_primitive",
     "is_function": "nathanfaucett/is_function"
   }
 }
