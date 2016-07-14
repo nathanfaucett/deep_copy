@@ -1,8 +1,8 @@
-var keys = require("keys"),
-    indexOf = require("index_of"),
-    isPrimitive = require("is_primitive"),
-    isFunction = require("is_function"),
-    isArrayLike = require("is_array_like");
+var keys = require("@nathanfaucett/keys"),
+    indexOf = require("@nathanfaucett/index_of"),
+    isPrimitive = require("@nathanfaucett/is_primitive"),
+    isFunction = require("@nathanfaucett/is_function"),
+    isArrayLike = require("@nathanfaucett/is_array_like");
 
 
 module.exports = deepCopy;

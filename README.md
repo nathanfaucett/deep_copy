@@ -1,4 +1,4 @@
 deepCopy
 =======
 
-deepCopy for the browser and node.js
+creates a deep copy of objects and arrays
