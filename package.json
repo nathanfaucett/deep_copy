@@ -1,6 +1,6 @@
 {
   "name": "@nathanfaucett/deep_copy",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "creates a deep copy of objects and arrays",
   "repository": {
     "type": "git",
@@ -29,7 +29,7 @@
     "zuul": "^3.7.2"
   },
   "dependencies": {
-    "@nathanfaucett/keys": "^0.0.1",
+    "@nathanfaucett/keys": "^0.0.2",
     "@nathanfaucett/index_of": "^0.0.1",
     "@nathanfaucett/is_array_like": "^0.0.2",
     "@nathanfaucett/is_primitive": "^0.0.2",
